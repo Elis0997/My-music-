@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Player</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .player-card {
+            width: 100%;
+            max-width: 360px;
+            background: #1e1e1e;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .cover {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #333;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .artist {
+            font-size: 14px;
+            color: #b3b3b3;
+            margin-bottom: 20px;
+        }
+        audio {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .lyrics-box {
+            width: 100%;
+            max-width: 360px;
+            margin-top: 20px;
+            background: #1e1e1e;
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .lyrics-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1db954;
+            margin-bottom: 10px;
+        }
+        .lyrics-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            white-space: pre-wrap;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-card">
+        <!-- Ссылка на обложку -->
+        <img id="cover" class="cover" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500" alt="Cover">
+        
+        <!-- Название и артист -->
+        <div id="title" class="title">Название Трека</div>
+        <div id="artist" class="artist">Исполнитель</div>
+
+        <!-- Аудиоплеер (вставить ссылку на MP3) -->
+        <audio id="audioPlayer" controls>
+            <source id="audioSource" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает аудио.
+        </audio>
+    </div>
+
+    <!-- Блок с текстом песни -->
+    <div class="lyrics-box">
+        <div class="lyrics-title">Текст песни</div>
+        <div id="lyrics" class="lyrics-content">Здесь будет располагаться текст твоей любимой песни...
+Каждая строчка с новой строки!
+Все красиво и удобно прокручивается.</div>
+    </div>
+
+    <script>
+        // Инициализация Telegram Mini App
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Разворачивает приложение на весь экран
+    </script>
+</body>
+</html>
